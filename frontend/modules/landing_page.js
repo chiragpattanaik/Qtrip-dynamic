@@ -16,7 +16,7 @@ async function fetchCities() {
   // TODO: MODULE_CITIES
   // 1. Fetch cities using the Backend API and return the data
   try{
-    const response = await fetch("http://3.6.83.254:8082/cities");
+    const response = await fetch("http://13.232.246.126:8082/cities");
     // console.log(response, typeof(response)); 
     const citiesData = await response.json();
     // console.log(data, typeof(data)) //data is an array of objects
@@ -31,24 +31,7 @@ async function fetchCities() {
 //Implementation of DOM manipulation to add cities
 function addCityToDOM(id, city, description, image) 
 {
-  // TODO: MODULE_CITIES
-  // 1. Populate the City details and insert those details into the DOM
-  // const newCityCard = document.createElement('div')
-  // newCityCard.setAttribute('class', 'col-12 col-sm-6 col-lg-3 mb-4')
-  // const cardContentHTML = `
-  // <a href='pages/adventures/?city=${id}' id='${id}'>
-  //   <div class='tile'>
-  //     <div class='tile-text text-center'>
-  //       <h5>${city}</h5>
-  //       <p>${description}</p>
-  //     </div>
-  //     <img class='img-fluid' src='${image}'>
-  //   </div>
-  // </a>
-  // `
-  // newCityCard.innerHTML = cardContentHTML
-  // const citiesGridParentElement = document.getElementById('data')
-  // citiesGridParentElement.append(newCityCard)
+ 
   const divele = document.createElement("div");
   divele.setAttribute('class','col-12 col-sm-6 col-lg-3 mb-4');
   divele.innerHTML = 

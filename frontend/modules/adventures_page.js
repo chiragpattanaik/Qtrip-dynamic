@@ -2,25 +2,62 @@
 import config from "../conf/index.js";
 
 //Implementation to extract city from query params
-function getCityFromURL(search) {
+function getCityFromURL(search)
+ {
   // TODO: MODULE_ADVENTURES
   // 1. Extract the city id from the URL's Query Param and return it
+  return search.split('=')[1];
 
 }
 
 //Implementation of fetch call with a paramterized input based on city
-async function fetchAdventures(city) {
+async function fetchAdventures(city)
+ {
   // TODO: MODULE_ADVENTURES
   // 1. Fetch adventures using the Backend API and return the data
-
+  try
+  {
+    const response = await fetch(`http://13.232.246.126:8082/adventures?city=${city}`);
+    const citiesData = await response.json();
+    return citiesData;
+  }catch(err)
+  {
+    console.log(err)
+    return null
+  }
+  
 }
+
 
 //Implementation of DOM manipulation to add adventures for the given city from list of adventures
 function addAdventureToDOM(adventures) {
   // TODO: MODULE_ADVENTURES
   // 1. Populate the Adventure Cards and insert those details into the DOM
+  adventures.forEach(key => 
+    {
+    var divElement = document.createElement("div");
+    divElement.className = "col-6 col-lg-3 mb-3";
+    divElement.innerHTML = `
+    <a href="detail/?adventure=${key.id}" id="${key.id}">
+        <div class="activity-card">
+          <img src="${key.image}" alt="${key.name}" />
+          <div class="category-banner">${key.category}</div>
+          <div class="w-100 p-1">
+            <div class="d-flex justify-content-between">
+              <h5>${key.name}</h5>
+              <p>₹${key.costPerHead}</p>
+            </div>
+            <div class="d-flex justify-content-between">
+              <h5>Duration</h5>
+              <p>${key.duration} Hours</p>
+            </div>
+          </div>
+        </div>
+      </a>
+    `;
+    document.getElementById("data").appendChild(divElement);
+  })}
 
-}
 
 //Implementation of filtering by duration which takes in a list of adventures, the lower bound and upper bound of duration and returns a filtered list of adventures.
 function filterByDuration(list, low, high) {
