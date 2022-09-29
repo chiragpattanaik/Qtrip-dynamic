@@ -16,7 +16,7 @@ async function fetchAdventureDetails(adventureId) {
   // 1. Fetch the details of the adventure by making an API call
   try
   {
-    const response = await fetch(`http://3.6.63.142:8082/adventures/detail?adventure=${adventureId}`);
+    const response = await fetch(`http://13.232.90.145:8082/adventures/detail?adventure=${adventureId}`);
     const citiesData = await response.json();
     return citiesData;
   }catch(err)
