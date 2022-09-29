@@ -17,7 +17,7 @@ async function fetchAdventures(city)
   // 1. Fetch adventures using the Backend API and return the data
   try
   {
-    const response = await fetch(`http://3.6.63.142:8082/adventures?city=${city}`);
+    const response = await fetch(`http://13.232.90.145:8082/adventures?city=${city}`);
     const citiesData = await response.json();
     return citiesData;
   }catch(err)
