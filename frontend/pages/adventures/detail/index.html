@@ -119,7 +119,8 @@
             calculateReservationCostAndUpdateDOM,
             showBannerIfAlreadyReserved,
         } from "../../../modules/adventure_details_page.js";
-        (async function () {
+        (async function () 
+        {
             let adventureId = await getAdventureIdFromURL(window.location.search);
             let adventureDetails = await fetchAdventureDetails(adventureId);
             addAdventureDetailsToDOM(adventureDetails);
