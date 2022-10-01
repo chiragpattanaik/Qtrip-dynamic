@@ -17,7 +17,7 @@ async function fetchAdventures(city)
   // 1. Fetch adventures using the Backend API and return the data
   try
   {
-    const response = await fetch(`http://3.7.81.231:8082/adventures?city=${city}`);
+    const response = await fetch(`http://3.7.162.60:8082/adventures?city=${city}`);
     const citiesData = await response.json();
     return citiesData;
   }catch(err)
@@ -127,9 +127,12 @@ else if(filters["duration"].length>0) //Returns Filter by duration only
 {
  filteredlist=filterByDuration(list,low,high)
 }
-
+else
+{
+  filteredlist = list; //returns the list if category and duration both are empty
+}
   // Place holder for functionality to work in the Stubs
-  return filteredlist; //Returns empty array if filter by category and duartion is not present
+  return filteredlist;
 }
 
 
